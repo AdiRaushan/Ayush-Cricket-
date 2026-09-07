@@ -1,0 +1,343 @@
+/* Ayush Cricket Academy - Teal Highlight Theme CSS (Poppins + DM Sans) */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Playfair+Display:ital,wght@1,600;1,700&display=swap');
+
+:root {
+  --brand-teal: #0E5863;
+  --brand-teal-dark: #072e34;
+  --brand-teal-light: #147483;
+  --brand-teal-accent: #00A896;
+  --brand-orange: #FF4D29;
+  --brand-orange-hover: #E03E1B;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: #0f172a;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.font-serif-italic {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb {
+  background: #0E5863;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #072e34;
+}
+
+/* Custom Selection */
+::selection {
+  background-color: #0E5863;
+  color: #ffffff;
+}
+
+/* ==================== CLEAN NAVBAR & BLACK LOGO ==================== */
+.clean-nav {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(14, 88, 99, 0.12);
+}
+
+.black-logo {
+  filter: brightness(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.black-logo:hover {
+  opacity: 0.85;
+}
+
+.nav-capsule-glass {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.08), 0 2px 8px -2px rgba(0, 0, 0, 0.03);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#main-header.scrolled .nav-capsule-glass {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(14, 88, 99, 0.2);
+  box-shadow: 0 14px 35px -5px rgba(7, 46, 52, 0.15), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+}
+
+.nav-link-cool {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link-cool::after {
+  content: '';
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #0E5863;
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(-50%);
+  opacity: 0;
+}
+
+.nav-link-cool:hover::after {
+  width: 50%;
+  opacity: 1;
+}
+
+/* Shiny Hover Button Effect */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-20deg);
+  transition: all 0.65s ease;
+}
+
+.btn-shine:hover::before {
+  left: 150%;
+}
+
+/* ==================== HERO SECTION & VIDEO CLARITY ==================== */
+.hero-video-full {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.92;
+  filter: brightness(0.95) contrast(1.05);
+}
+
+.hero-overlay-subtle {
+  background: linear-gradient(180deg, rgba(7, 46, 52, 0.65) 0%, rgba(7, 46, 52, 0.3) 50%, rgba(7, 46, 52, 0.85) 100%);
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero {
+  animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ==================== ELEGANT TEAL SHOWCASE BANNER ==================== */
+.what-we-do-banner {
+  background: linear-gradient(135deg, #F0FDFa 0%, #E6F8F9 50%, #F0FDFa 100%);
+  border: 1.5px solid rgba(14, 88, 99, 0.25);
+  border-radius: 2rem;
+  box-shadow: 0 20px 40px -15px rgba(14, 88, 99, 0.12);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.what-we-do-banner:hover {
+  box-shadow: 0 25px 50px -12px rgba(14, 88, 99, 0.22);
+  border-color: #0E5863;
+}
+
+.what-we-do-banner::before {
+  content: 'WHAT WE DO';
+  position: absolute;
+  right: -20px;
+  bottom: -30px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  font-size: 6rem;
+  color: rgba(14, 88, 99, 0.05);
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
+}
+
+/* ==================== HIGH READABILITY TEAL TEAM CARDS ==================== */
+.team-card-impressive {
+  position: relative;
+  height: 450px;
+  border-radius: 1.75rem;
+  overflow: hidden;
+  border: 1px solid rgba(14, 88, 99, 0.2);
+  box-shadow: 0 15px 35px -10px rgba(15, 23, 42, 0.1);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  background: #072e34;
+}
+
+.team-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  filter: brightness(0.9) contrast(1.02);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.team-card-impressive:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 30px 60px -15px rgba(14, 88, 99, 0.35), 0 0 25px rgba(14, 88, 99, 0.4);
+  border-color: #147483;
+}
+
+.team-card-impressive:hover .team-card-img {
+  transform: scale(1.08);
+  filter: brightness(1.1) contrast(1.05);
+}
+
+.team-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.2) 0%, rgba(15, 23, 42, 0.45) 45%, rgba(7, 46, 52, 0.98) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-between;
+  padding: 1.5rem;
+  transition: background 0.4s ease;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.team-card-impressive:hover .team-card-overlay {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.4) 40%, rgba(7, 46, 52, 0.96) 100%);
+}
+
+.team-number-watermark {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  font-size: 3.75rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.25);
+  user-select: none;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.team-social-links {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.team-card-impressive:hover .team-social-links {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Trophy Podium Cards */
+.trophy-podium-card {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.trophy-podium-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px -12px rgba(14, 88, 99, 0.25);
+  border-color: #0E5863;
+}
+
+.trophy-podium-card img {
+  transition: transform 0.5s ease;
+}
+.trophy-podium-card:hover img {
+  transform: scale(1.12);
+}
+
+/* Facility Cards */
+.facility-card-impressive {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.75rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.facility-card-impressive:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px -15px rgba(14, 88, 99, 0.2);
+  border-color: #0E5863;
+}
+
+.facility-card-impressive img {
+  filter: brightness(0.95);
+  transition: all 0.6s ease;
+}
+.facility-card-impressive:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.08) contrast(1.05);
+}
+
+/* Gallery Cards */
+.img-zoom-clean {
+  overflow: hidden;
+  position: relative;
+}
+.img-zoom-clean img {
+  filter: brightness(0.95);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+}
+.img-zoom-clean:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.08) contrast(1.05);
+}
+
+/* Play Button Pulse */
+@keyframes softPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 77, 41, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(255, 77, 41, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 77, 41, 0);
+  }
+}
+.play-btn-pulse {
+  animation: softPulse 2.2s infinite;
+}
+
+/* Modal Overlay backdrop */
+.modal-backdrop {
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(12px);
+}
