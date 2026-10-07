@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Ayush Cricket Academy - Uttarakhand</title>
+  <meta name="description"
+    content="Ayush Cricket Academy is focused on developing the next generation of cricket players through professional coaching, skill development and holistic growth.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/logo.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandTeal: '#0E5863',
+            brandTealDark: '#072e34',
+            brandTealAccent: '#147483',
+            brandOrange: '#FF4D29',
+            brandOrangeHover: '#E03E1B',
+          },
+          fontFamily: {
+            sans: ['DM Sans', 'sans-serif'],
+            heading: ['Poppins', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Poppins (Headings) + DM Sans (Body) + Playfair Display (Serif Accent) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Playfair+Display:ital,wght@1,600;1,700&display=swap"
+    rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="bg-white text-slate-900 antialiased selection:bg-brandTeal selection:text-white" data-internal-page="true">
+
+  <!-- ==================== SHARED NAVBAR & ANNOUNCEMENT BAR ==================== -->
+  <div id="site-header" data-active="about"></div>
+
+  <!-- ==================== MAIN PAGE CONTENT ==================== -->
+  <main>
+
+    <!-- ==================== ELEVATED INTERNAL HERO ==================== -->
+    <section
+      class="hero-internal-backdrop text-white overflow-hidden min-h-[90vh] min-h-[90dvh] pt-32 pb-16 sm:pt-36 sm:pb-16 flex flex-col justify-center items-center border-b border-teal-900/40">
+      <!-- High-Res Stadium Background Image with Scrim Overlay -->
+      <div class="absolute inset-0 z-0">
+        <img src="https://ayushcricketacademy.com/wp-content/uploads/2025/05/best-cricket-academy-uttarakhand.jpg"
+          alt="Ayush Cricket Academy Training Grounds"
+          class="w-full h-full object-cover object-center opacity-70 scale-105 transition-transform duration-1000"
+          loading="eager">
+        <div class="absolute inset-0 bg-gradient-to-b from-[#031518]/70 via-[#072e34]/50 to-[#031518]/85 z-0"></div>
+      </div>
+
+      <!-- Glowing Stadium Spotlight Mesh -->
+      <div class="hero-ambient-spotlight"></div>
+
+      <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center w-full">
+
+        <!-- Top Pill Row: Breadcrumb + Affiliation Badge -->
+        <div class="flex flex-wrap items-center justify-center gap-3 mb-5 sm:mb-6 animate-hero">
+          <nav aria-label="Breadcrumb"
+            class="inline-flex items-center gap-2 hero-glass-pill text-slate-300 px-4 py-1.5 rounded-full text-xs font-medium">
+            <a href="index.html" class="hover:text-teal-300 transition-colors flex items-center gap-1.5">
+              <i class="fa-solid fa-house text-[10px]"></i>
+              <span>Home</span>
+            </a>
+            <i class="fa-solid fa-chevron-right text-[9px] text-teal-400"></i>
+            <span class="text-teal-300 font-semibold">About Us</span>
+          </nav>
+
+          <span
+            class="inline-flex items-center gap-2 hero-glass-pill text-teal-300 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+            <span class="w-2 h-2 rounded-full bg-brandOrange animate-pulse"></span>
+            <span>Est. 2017 • Premier Cricket Institute</span>
+          </span>
+        </div>
+
+        <!-- Tagline Kicker -->
+        <div
+          class="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-teal-300 uppercase tracking-widest mb-3 animate-hero">
+          <i class="fa-solid fa-trophy text-brandOrange"></i>
+          <span>NURTURING CRICKETING EXCELLENCE IN UTTARAKHAND</span>
+        </div>
+
+        <!-- Main Display Heading in two-tone Poppins with gradient accent -->
+        <h1
+          class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black font-heading tracking-tight uppercase leading-tight sm:leading-none text-white mb-4 sm:mb-6 animate-hero drop-shadow-2xl">
+          ABOUT <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-emerald-200 to-teal-400">AYUSH
+            CRICKET</span> ACADEMY
+        </h1>
+
+        <!-- Supporting Value Proposition -->
+        <p
+          class="max-w-2xl mx-auto text-slate-200 text-sm sm:text-base md:text-lg font-medium leading-relaxed drop-shadow-md mb-8 animate-hero">
+          Affiliated with the Cricket Association of Uttarakhand. Driven by BCCI & NIS certified coaches, international
+          standard turf wickets, video analysis lab, and dedicated residential campus in Dehradun.
+        </p>
+
+        <!-- Action Buttons Cluster + Direct Video Intro Modal Trigger -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto animate-hero">
+          <a href="contact.html"
+            class="btn-shine w-full sm:w-auto bg-gradient-to-r from-brandOrange to-brandOrangeHover text-white px-8 py-3.5 sm:px-9 sm:py-4 rounded-full font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-xl shadow-brandOrange/25 hover:shadow-brandOrange/45 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+            <span>Admission Enquiry</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+
+          <button
+            class="video-play-btn w-full sm:w-auto hero-glass-pill hover:bg-teal-900/40 text-white px-7 py-3.5 sm:px-8 sm:py-4 rounded-full font-extrabold text-xs sm:text-sm tracking-wider uppercase transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-3"
+            data-video="https://ayushcricketacademy.com/wp-content/uploads/2025/05/Ayush-Cricket-Academy-Indias-Best-Cricket-Academy.mp4"
+            data-title="Ayush Cricket Academy Intro Film">
+            <span
+              class="w-7 h-7 rounded-full bg-brandOrange text-white flex items-center justify-center text-xs shadow-md">
+              <i class="fa-solid fa-play ml-0.5 text-[10px]"></i>
+            </span>
+            <span>Watch Academy Film</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== ACADEMY HISTORY & STORY SECTION ==================== -->
+    <section id="history" class="py-24 bg-white relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+          <!-- Left Column: Copy & Story (6 cols) -->
+          <div class="lg:col-span-6 space-y-6">
+            <div class="inline-flex items-center gap-2 text-brandTeal font-bold text-xs uppercase tracking-widest">
+              <span class="w-2 h-2 rounded-full bg-brandOrange"></span>
+              OUR STORY & HERITAGE
+            </div>
+
+            <h2
+              class="text-3xl sm:text-5xl font-extrabold text-slate-900 font-heading leading-tight tracking-tight uppercase">
+              DEVELOPING THE NEXT <span class="text-brandTeal">GENERATION</span> OF CRICKETERS
+            </h2>
+
+            <p class="text-slate-600 text-base leading-relaxed">
+              We are a top cricket academy focused on training the next generation of cricket players. Our expert
+              coaching programs provide essential skills and game knowledge for success at every level. With experienced
+              and passionate coaches, we are dedicated to helping students improve performance, build confidence, and
+              achieve their full potential in cricket.
+            </p>
+
+            <p class="text-slate-600 text-base leading-relaxed">
+              At our cricket academy, we teach more than just the game. We focus on building life skills like teamwork,
+              leadership, sportsmanship, and perseverance. Our programs promote healthy competition, respect, and a
+              strong community spirit, helping players grow both on and off the field.
+            </p>
+
+            <!-- Supporting Action Links -->
+            <div class="pt-3 flex flex-wrap items-center gap-4">
+              <a href="contact.html"
+                class="btn-shine inline-flex items-center gap-3 bg-brandOrange hover:bg-brandOrangeHover text-white px-8 py-3.5 rounded-full font-bold text-xs uppercase tracking-wider shadow-lg shadow-brandOrange/20 transition-all">
+                <span>Admission Enquiry</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+              <a href="courses.html"
+                class="inline-flex items-center gap-2 text-xs font-bold uppercase text-slate-800 hover:text-brandOrange transition-colors">
+                <span>Explore Courses &gt;&gt;</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Overlapping Photos Composition (6 cols) -->
+          <div class="lg:col-span-6 relative">
+            <div class="relative">
+              <!-- Main Large Player Image -->
+              <div
+                class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white img-zoom-clean h-[320px] sm:h-[440px] bg-slate-950">
+                <img src="https://ayushcricketacademy.com/wp-content/uploads/2025/05/Ayush-Cricket-Academy-Player.jpg"
+                  alt="Ayush Cricket Academy cricket player training" class="w-full h-full object-cover object-top"
+                  loading="lazy">
+              </div>
+
+              <!-- Secondary Overlapping Bowling Inset -->
+              <div
+                class="absolute -bottom-6 -left-6 w-48 sm:w-56 rounded-2xl overflow-hidden shadow-2xl border-4 border-white img-zoom-clean hidden sm:block z-10 bg-slate-900">
+                <img src="https://ayushcricketacademy.com/wp-content/uploads/2025/05/bowling-drills.jpg"
+                  alt="Cricket bowling drills at Ayush Cricket Academy" class="w-full h-36 object-cover" loading="lazy">
+              </div>
+
+              <!-- Premier Academy Badge Overlay -->
+              <div
+                class="absolute top-4 right-4 bg-brandTeal text-white text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider shadow-xl border border-teal-300/40">
+                <i class="fa-solid fa-trophy text-teal-300 me-1.5"></i> PREMIER CRICKET ACADEMY
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== MISSION & VISION SECTION ==================== -->
+    <section id="purpose" class="py-24 bg-slate-50 border-y border-slate-100 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span
+            class="text-brandTeal font-bold text-xs uppercase tracking-widest bg-brandTeal/10 px-3.5 py-1 rounded-full border border-brandTeal/20">
+            OUR PURPOSE & GUIDING PRINCIPLES
+          </span>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 font-heading tracking-tight mt-3 uppercase">
+            OUR MISSION & <span class="font-serif-italic text-brandTeal font-normal lowercase">vision</span>
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base mt-2">
+            Committed to nurturing cricket talent through disciplined coaching, high standards, and lifelong sports
+            values.
+          </p>
+        </div>
+
+        <!-- 2 Premium Purpose Cards -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+
+          <!-- Card 1: Our Mission -->
+          <div
+            class="bg-white p-8 sm:p-12 rounded-3xl border border-slate-200/80 shadow-md hover:shadow-xl hover:border-brandTeal transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+            <div class="space-y-5">
+              <div class="flex items-center justify-between">
+                <div
+                  class="w-14 h-14 rounded-2xl bg-brandTeal/10 text-brandTeal flex items-center justify-center text-2xl group-hover:bg-brandTeal group-hover:text-white transition-colors duration-300 shadow-sm">
+                  <i class="fa-solid fa-bullseye"></i>
+                </div>
+                <span
+                  class="text-[10px] font-extrabold text-brandTeal uppercase tracking-widest bg-teal-50 border border-teal-100 px-3 py-1 rounded-full">
+                  PILLAR 01
+                </span>
+              </div>
+
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading uppercase tracking-tight">
+                OUR MISSION
+              </h3>
+
+              <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                At our premier cricket academy, we believe cricket is more than just a game. It’s a powerful opportunity
+                to develop key life skills such as teamwork, sportsmanship, leadership, and perseverance. We take pride
+                in fostering healthy competition, respect for others, and a strong community spirit among players.
+              </p>
+
+              <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                We are dedicated to nurturing the next generation of cricket stars through world-class coaching
+                programs. Our expert coaches bring passion and experience to every session, providing students with the
+                skills and knowledge necessary to succeed at all levels of the game. Our commitment is to help each
+                student reach their full potential and excel both on and off the field.
+              </p>
+            </div>
+
+            <div
+              class="pt-6 mt-6 border-t border-slate-100 flex items-center gap-2 text-xs font-bold uppercase text-brandTeal">
+              <span class="w-2 h-2 rounded-full bg-brandOrange"></span>
+              <span>Developing Skills • Building Character</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Our Vision -->
+          <div
+            class="bg-white p-8 sm:p-12 rounded-3xl border border-slate-200/80 shadow-md hover:shadow-xl hover:border-brandTeal transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+            <div class="space-y-5">
+              <div class="flex items-center justify-between">
+                <div
+                  class="w-14 h-14 rounded-2xl bg-brandOrange/10 text-brandOrange flex items-center justify-center text-2xl group-hover:bg-brandOrange group-hover:text-white transition-colors duration-300 shadow-sm">
+                  <i class="fa-solid fa-compass"></i>
+                </div>
+                <span
+                  class="text-[10px] font-extrabold text-brandOrange uppercase tracking-widest bg-orange-50 border border-orange-100 px-3 py-1 rounded-full">
+                  PILLAR 02
+                </span>
+              </div>
+
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading uppercase tracking-tight">
+                OUR VISION
+              </h3>
+
+              <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                We are a premier cricket academy dedicated to developing the next generation of cricket stars. Our
+                academy offers world-class coaching programs designed to provide our students with the skills and
+                knowledge needed to succeed at all levels of the game. Our team of experienced coaches is passionate
+                about cricket and committed to helping our students reach their full potential.
+              </p>
+
+              <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                At our academy, we believe that cricket is more than just a game. It's an opportunity to learn valuable
+                life skills, such as teamwork, sportsmanship, leadership, and perseverance. We are proud to be part of a
+                sport that promotes healthy competition, respect for others, and a strong sense of community.
+              </p>
+            </div>
+
+            <div
+              class="pt-6 mt-6 border-t border-slate-100 flex items-center gap-2 text-xs font-bold uppercase text-brandOrange">
+              <span class="w-2 h-2 rounded-full bg-brandTeal"></span>
+              <span>Empowering Future Stars • Lifelong Sportsmanship</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== MORE THAN CRICKET / CORE VALUES SECTION ==================== -->
+    <section id="values" class="py-24 bg-white relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div>
+            <span
+              class="text-brandTeal font-bold text-xs uppercase tracking-widest bg-brandTeal/10 px-3.5 py-1 rounded-full border border-brandTeal/20">
+              MORE THAN CRICKET
+            </span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 font-heading tracking-tight mt-2 uppercase">
+              OUR CORE <span class="text-brandTeal">VALUES</span>
+            </h2>
+          </div>
+          <p class="max-w-md text-slate-600 text-sm font-medium">
+            Building life skills that create outstanding cricket athletes and disciplined individuals beyond the pitch.
+          </p>
+        </div>
+
+        <!-- 4 Compact Core Values Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <!-- Value 1: Teamwork -->
+          <div
+            class="bg-white p-7 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:border-brandTeal hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div
+                class="w-12 h-12 rounded-xl bg-teal-50 text-brandTeal flex items-center justify-center text-xl mb-5 group-hover:bg-brandTeal group-hover:text-white transition-colors duration-300">
+                <i class="fa-solid fa-users"></i>
+              </div>
+              <h3 class="text-xl font-extrabold text-slate-900 font-heading mb-2">Teamwork</h3>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                Building the ability to work together, communicate effectively, and support teammates through every
+                match situation.
+              </p>
+            </div>
+            <div
+              class="mt-6 pt-4 border-t border-slate-100 text-[11px] font-bold text-brandTeal uppercase tracking-wider">
+              Stronger Together
+            </div>
+          </div>
+
+          <!-- Value 2: Leadership -->
+          <div
+            class="bg-white p-7 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:border-brandTeal hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div
+                class="w-12 h-12 rounded-xl bg-orange-50 text-brandOrange flex items-center justify-center text-xl mb-5 group-hover:bg-brandOrange group-hover:text-white transition-colors duration-300">
+                <i class="fa-solid fa-award"></i>
+              </div>
+              <h3 class="text-xl font-extrabold text-slate-900 font-heading mb-2">Leadership</h3>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                Developing confidence, clear tactical decision-making, and taking responsibility for performance both on
+                and off the field.
+              </p>
+            </div>
+            <div
+              class="mt-6 pt-4 border-t border-slate-100 text-[11px] font-bold text-brandOrange uppercase tracking-wider">
+              Lead by Example
+            </div>
+          </div>
+
+          <!-- Value 3: Sportsmanship -->
+          <div
+            class="bg-white p-7 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:border-brandTeal hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div
+                class="w-12 h-12 rounded-xl bg-teal-50 text-brandTeal flex items-center justify-center text-xl mb-5 group-hover:bg-brandTeal group-hover:text-white transition-colors duration-300">
+                <i class="fa-solid fa-handshake"></i>
+              </div>
+              <h3 class="text-xl font-extrabold text-slate-900 font-heading mb-2">Sportsmanship</h3>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                Learning deep respect for opponents, match officials, and teammates while upholding fair play and
+                disciplined healthy competition.
+              </p>
+            </div>
+            <div
+              class="mt-6 pt-4 border-t border-slate-100 text-[11px] font-bold text-brandTeal uppercase tracking-wider">
+              Respect the Game
+            </div>
+          </div>
+
+          <!-- Value 4: Perseverance -->
+          <div
+            class="bg-white p-7 rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:border-brandTeal hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div
+                class="w-12 h-12 rounded-xl bg-orange-50 text-brandOrange flex items-center justify-center text-xl mb-5 group-hover:bg-brandOrange group-hover:text-white transition-colors duration-300">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <h3 class="text-xl font-extrabold text-slate-900 font-heading mb-2">Perseverance</h3>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                Building mental resilience, overcoming match pressure, and continuously striving to improve with
+                disciplined dedication.
+              </p>
+            </div>
+            <div
+              class="mt-6 pt-4 border-t border-slate-100 text-[11px] font-bold text-brandOrange uppercase tracking-wider">
+              Relentless Focus
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== VISUAL FEATURE SECTION ==================== -->
+    <section class="py-12 bg-white relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="rounded-3xl overflow-hidden relative shadow-2xl border border-slate-200/90 h-[360px] sm:h-[460px] img-zoom-clean group">
+          <img src="https://ayushcricketacademy.com/wp-content/uploads/2025/05/cricket-warmup-drills.jpg"
+            alt="Cricket warm-up and conditioning drills at Ayush Cricket Academy" class="w-full h-full object-cover"
+            loading="lazy">
+
+          <!-- Editorial Gradient Overlay -->
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent p-6 sm:p-12 flex flex-col justify-end">
+            <div class="max-w-2xl">
+              <span
+                class="inline-flex items-center gap-2 bg-brandOrange text-white text-[10px] sm:text-xs font-extrabold px-3.5 py-1 rounded-full uppercase tracking-wider shadow-lg mb-3">
+                <i class="fa-solid fa-fire text-[10px]"></i>
+                <span>HIGH PERFORMANCE TRAINING</span>
+              </span>
+              <h3
+                class="text-2xl sm:text-4xl md:text-5xl font-black font-heading text-white tracking-tight uppercase leading-tight drop-shadow-md">
+                RAISE YOUR GAME
+              </h3>
+              <p class="text-slate-200 text-xs sm:text-base font-medium mt-2 leading-relaxed drop-shadow">
+                Training with purpose. Growing on and off the field through discipline, focus, and athletic excellence.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== OUR TEAM / COACHES SECTION ==================== -->
+    <section id="coaches" class="py-24 bg-white relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section Header with View All CTA -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div>
+            <span
+              class="text-brandTeal font-bold text-xs uppercase tracking-widest bg-brandTeal/10 px-3.5 py-1 rounded-full border border-brandTeal/20">
+              ACADEMY LEADERSHIP & MENTORS
+            </span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 font-heading tracking-tight mt-2 uppercase">
+              MEET OUR <span class="font-serif-italic text-brandTeal font-normal lowercase">coaches</span>
+            </h2>
+          </div>
+          <a href="team.html"
+            class="inline-flex items-center gap-2 text-xs font-bold uppercase text-brandTeal hover:text-brandOrange transition-colors">
+            <span>Meet Our Full Team &gt;&gt;</span>
+          </a>
+        </div>
+
+        <!-- 4 Team Cards Grid using established .team-card-impressive pattern -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+          <!-- Coach 1: Gajendra Rawat -->
+          <div class="team-card-impressive group">
+            <img src="https://ayushcricketacademy.com/wp-content/uploads/2025/07/Head-Coach-Gajendra-Rawat.png"
+              alt="Gajendra Rawat, Head Coach at Ayush Cricket Academy" class="team-card-img" loading="lazy">
+
+            <div class="team-card-overlay">
+              <div class="flex items-center justify-between">
+                <span class="team-number-watermark">01</span>
+                <span
+                  class="bg-brandTeal text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">
+                  HEAD COACH
+                </span>
+              </div>
+
+              <div>
+                <h3 class="text-2xl font-black text-white font-heading tracking-tight mb-1 drop-shadow-md">Gajendra
+                  Rawat</h3>
+                <p class="text-xs text-teal-300 font-bold uppercase tracking-wide drop-shadow">Head Coach</p>
+                <p class="text-xs text-slate-200 font-medium leading-relaxed mt-1">Ayush Cricket Academy</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coach 2: Malay Kumar -->
+          <div class="team-card-impressive group">
+            <img src="https://ayushcricketacademy.com/wp-content/uploads/2025/07/Coach-Malay-kumar.png"
+              alt="Malay Kumar, Coach at Ayush Cricket Academy" class="team-card-img" loading="lazy">
+
+            <div class="team-card-overlay">
+              <div class="flex items-center justify-between">
+                <span class="team-number-watermark">02</span>
+                <span
+                  class="bg-brandOrange text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">
+                  COACH
+                </span>
+              </div>
+
+              <div>
+                <h3 class="text-2xl font-black text-white font-heading tracking-tight mb-1 drop-shadow-md">Malay Kumar
+                </h3>
+                <p class="text-xs text-teal-300 font-bold uppercase tracking-wide drop-shadow">Coach</p>
+                <p class="text-xs text-slate-200 font-medium leading-relaxed mt-1">Ayush Cricket Academy</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coach 3: Vikrant Singh Dangi -->
+          <div class="team-card-impressive group">
+            <img src="https://ayushcricketacademy.com/wp-content/uploads/2025/07/Coach-Bat_Bowl-Vikrant-Singh-Dangi.png"
+              alt="Vikrant Singh Dangi, Batting and Bowling Coach" class="team-card-img" loading="lazy">
+
+            <div class="team-card-overlay">
+              <div class="flex items-center justify-between">
+                <span class="team-number-watermark">03</span>
+                <span
+                  class="bg-brandTeal text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg border border-teal-300/30">
+                  BAT / BOWL
+                </span>
+              </div>
+
+              <div>
+                <h3 class="text-2xl font-black text-white font-heading tracking-tight mb-1 drop-shadow-md">Vikrant Singh
+                  Dangi</h3>
+                <p class="text-xs text-teal-300 font-bold uppercase tracking-wide drop-shadow">Coach — Bat/Bowl</p>
+                <p class="text-xs text-slate-200 font-medium leading-relaxed mt-1">Ayush Cricket Academy</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coach 4: Karan Kharola -->
+          <div class="team-card-impressive group">
+            <img src="https://ayushcricketacademy.com/wp-content/uploads/2025/07/Coach-Karan-kharola.png"
+              alt="Karan Kharola, Coach at Ayush Cricket Academy" class="team-card-img" loading="lazy">
+
+            <div class="team-card-overlay">
+              <div class="flex items-center justify-between">
+                <span class="team-number-watermark">04</span>
+                <span
+                  class="bg-brandTeal text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">
+                  COACH
+                </span>
+              </div>
+
+              <div>
+                <h3 class="text-2xl font-black text-white font-heading tracking-tight mb-1 drop-shadow-md">Karan Kharola
+                </h3>
+                <p class="text-xs text-teal-300 font-bold uppercase tracking-wide drop-shadow">Coach</p>
+                <p class="text-xs text-slate-200 font-medium leading-relaxed mt-1">Ayush Cricket Academy</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== OUR AWARDS & TROPHIES SECTION ==================== -->
+    <section id="awards" class="py-24 bg-slate-50 border-y border-slate-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div>
+            <span
+              class="text-brandTeal font-bold text-xs uppercase tracking-widest bg-brandTeal/10 px-3.5 py-1 rounded-full border border-brandTeal/20">
+              EXCELLENCE & RECOGNITION
+            </span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 font-heading tracking-tight mt-2 uppercase">
+              ACADEMY <span class="text-brandTeal">ACHIEVEMENTS</span>
+            </h2>
+          </div>
+          <p class="max-w-md text-slate-600 text-sm">
+            Celebrating tournament triumphs and championship recognition earned by Ayush Cricket Academy teams and
+            players.
+          </p>
+        </div>
+
+        <!-- 5 Trophy Podium Cards Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+
+          <!-- Award 1 -->
+          <div class="trophy-podium-card p-6 text-center flex flex-col justify-between items-center group">
+            <div class="w-28 h-28 flex items-center justify-center mb-4 p-2 relative">
+              <div
+                class="absolute inset-0 bg-teal-50 rounded-full blur-xl group-hover:bg-teal-100/80 transition-colors">
+              </div>
+              <img
+                src="https://ayushcricketacademy.com/wp-content/uploads/2025/07/New-Under-19-Trophy-2025-2026-Ayush-Cricket-Academy.png"
+                alt="New Under-19 Trophy 2025-2026 Ayush Cricket Academy"
+                class="max-h-full max-w-full object-contain relative z-10" loading="lazy">
+            </div>
+            <div>
+              <span class="text-[10px] font-bold text-brandTeal uppercase tracking-wider block mb-1">TOURNAMENT
+                TROPHY</span>
+              <h3 class="font-bold text-slate-900 text-xs font-heading">Under-19 Cup 2025-2026</h3>
+            </div>
+          </div>
+
+          <!-- Award 2 -->
+          <div class="trophy-podium-card p-6 text-center flex flex-col justify-between items-center group">
+            <div class="w-28 h-28 flex items-center justify-center mb-4 p-2 relative">
+              <div
+                class="absolute inset-0 bg-teal-50 rounded-full blur-xl group-hover:bg-teal-100/80 transition-colors">
+              </div>
+              <img
+                src="https://ayushcricketacademy.com/wp-content/uploads/2025/07/Runner-Up-Trophy-Ayush-Cricket-Academy.png"
+                alt="Runner-Up Trophy Ayush Cricket Academy" class="max-h-full max-w-full object-contain relative z-10"
+                loading="lazy">
+            </div>
+            <div>
+              <span class="text-[10px] font-bold text-brandTeal uppercase tracking-wider block mb-1">RUNNERS UP</span>
+              <h3 class="font-bold text-slate-900 text-xs font-heading">Tournament Runner-Up Trophy</h3>
+            </div>
+          </div>
+
+          <!-- Award 3 -->
+          <div class="trophy-podium-card p-6 text-center flex flex-col justify-between items-center group">
+            <div class="w-28 h-28 flex items-center justify-center mb-4 p-2 relative">
+              <div
+                class="absolute inset-0 bg-teal-50 rounded-full blur-xl group-hover:bg-teal-100/80 transition-colors">
+              </div>
+              <img src="https://ayushcricketacademy.com/wp-content/uploads/2025/07/Trophies-Ayush-Cricket-Academy.png"
+                alt="Championship Trophies Ayush Cricket Academy"
+                class="max-h-full max-w-full object-contain relative z-10" loading="lazy">
+            </div>
+            <div>
+              <span class="text-[10px] font-bold text-brandTeal uppercase tracking-wider block mb-1">ACADEMY
+                HONORS</span>
+              <h3 class="font-bold text-slate-900 text-xs font-heading">Championship Trophies</h3>
+            </div>
+          </div>
+
+          <!-- Award 4 -->
+          <div class="trophy-podium-card p-6 text-center flex flex-col justify-between items-center group">
+            <div class="w-28 h-28 flex items-center justify-center mb-4 p-2 relative">
+              <div
+                class="absolute inset-0 bg-teal-50 rounded-full blur-xl group-hover:bg-teal-100/80 transition-colors">
+              </div>
+              <img
+                src="https://ayushcricketacademy.com/wp-content/uploads/2025/07/Cricket-Tournament-Winner-Trophy-Ayush-Cricket-Academy.png"
+                alt="Cricket Tournament Winner Trophy Ayush Cricket Academy"
+                class="max-h-full max-w-full object-contain relative z-10" loading="lazy">
+            </div>
+            <div>
+              <span class="text-[10px] font-bold text-brandTeal uppercase tracking-wider block mb-1">CHAMPIONS</span>
+              <h3 class="font-bold text-slate-900 text-xs font-heading">Tournament Winner Trophy</h3>
+            </div>
+          </div>
+
+          <!-- Award 5 -->
+          <div
+            class="trophy-podium-card p-6 text-center flex flex-col justify-between items-center group col-span-2 md:col-span-1">
+            <div class="w-28 h-28 flex items-center justify-center mb-4 p-2 relative">
+              <div
+                class="absolute inset-0 bg-teal-50 rounded-full blur-xl group-hover:bg-teal-100/80 transition-colors">
+              </div>
+              <img
+                src="https://ayushcricketacademy.com/wp-content/uploads/2025/07/Man-of-the-match-Trophy-Ayush-Cricket-Academy.png"
+                alt="Man of the match Trophy Ayush Cricket Academy"
+                class="max-h-full max-w-full object-contain relative z-10" loading="lazy">
+            </div>
+            <div>
+              <span class="text-[10px] font-bold text-brandTeal uppercase tracking-wider block mb-1">INDIVIDUAL
+                HONOR</span>
+              <h3 class="font-bold text-slate-900 text-xs font-heading">Man of the Match Award</h3>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ACADEMY BRAND STATEMENT / CTA SECTION ==================== -->
+    <section class="py-20 bg-white relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="what-we-do-banner p-8 sm:p-14 text-center flex flex-col items-center justify-center">
+          <div
+            class="inline-flex items-center gap-2 bg-brandTeal/10 text-brandTeal px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-brandTeal/20">
+            <span class="w-2 h-2 rounded-full bg-brandOrange animate-pulse"></span>
+            <span>Admissions Open 2025-26</span>
+          </div>
+
+          <h2
+            class="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-slate-900 uppercase tracking-tight max-w-3xl mb-4">
+            READY TO TAKE YOUR GAME FURTHER?
+          </h2>
+
+          <p class="max-w-2xl mx-auto text-slate-700 text-sm sm:text-base md:text-lg font-medium leading-relaxed mb-8">
+            Ayush Cricket Academy offers professional coaching, certified trainers, modern facilities, and holistic
+            cricket skill development.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+            <a href="contact.html"
+              class="btn-shine w-full sm:w-auto bg-brandOrange hover:bg-brandOrangeHover text-white px-8 py-4 rounded-full font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-xl transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+              <span>Admission Enquiry</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+            <a href="courses.html"
+              class="w-full sm:w-auto bg-white hover:bg-slate-50 text-slate-900 border border-slate-300 px-8 py-4 rounded-full font-extrabold text-xs sm:text-sm tracking-wider uppercase transition-all shadow-sm flex items-center justify-center gap-2">
+              <i class="fa-solid fa-graduation-cap text-brandTeal"></i>
+              <span>Explore Our Courses</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== SHARED FOOTER & MODALS ==================== -->
+  <div id="site-footer"></div>
+
+  <!-- Shared Component Loader & Interactive Scripts -->
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

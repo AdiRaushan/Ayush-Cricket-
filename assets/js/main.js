@@ -2,218 +2,387 @@
  * Ayush Cricket Academy - Interactive JS
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   // --- 1. Sticky Navigation & Scroll Active Indicator ---
-  const header = document.getElementById('main-header');
-  window.addEventListener('scroll', () => {
+  window.addEventListener("scroll", () => {
+    const header = document.getElementById("main-header");
+    if (!header) return;
     if (window.scrollY > 30) {
-      header.classList.add('scrolled');
+      header.classList.add("scrolled");
     } else {
-      header.classList.remove('scrolled');
+      header.classList.remove("scrolled");
     }
   });
 
-  // Highlight active nav item on scroll
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-link-cool');
+  // Highlight active nav item on scroll (only if data-section links exist, e.g. on single-page landing)
+  const sections = document.querySelectorAll("section[id]");
+  const navSectionLinks = document.querySelectorAll(
+    ".nav-link-cool[data-section]",
+  );
 
-  window.addEventListener('scroll', () => {
-    let currentSection = 'hero';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 120;
-      if (window.scrollY >= sectionTop) {
-        currentSection = section.getAttribute('id');
-      }
-    });
-
-    navLinks.forEach(link => {
-      const targetSec = link.getAttribute('data-section');
-      if (targetSec === currentSection) {
-        link.classList.add('text-brandTeal', 'bg-brandTeal/10', 'font-bold');
-        link.classList.remove('text-slate-700');
-        if (!link.querySelector('.animate-pulse')) {
-          const dot = document.createElement('span');
-          dot.className = 'w-1.5 h-1.5 rounded-full bg-brandTeal animate-pulse ml-1.5 inline-block';
-          link.appendChild(dot);
+  if (navSectionLinks.length > 0 && sections.length > 0) {
+    window.addEventListener("scroll", () => {
+      let currentSection = "hero";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 120;
+        if (window.scrollY >= sectionTop) {
+          currentSection = section.getAttribute("id");
         }
-      } else {
-        link.classList.remove('text-brandTeal', 'bg-brandTeal/10', 'font-bold');
-        link.classList.add('text-slate-700');
-        const dot = link.querySelector('.animate-pulse');
-        if (dot) dot.remove();
-      }
+      });
+
+      navSectionLinks.forEach((link) => {
+        const targetSec = link.getAttribute("data-section");
+        if (targetSec === currentSection) {
+          link.classList.add("text-brandTeal", "bg-brandTeal/10", "font-bold");
+          link.classList.remove("text-slate-700");
+          if (!link.querySelector(".animate-pulse")) {
+            const dot = document.createElement("span");
+            dot.className =
+              "w-1.5 h-1.5 rounded-full bg-brandTeal animate-pulse ml-1.5 inline-block";
+            link.appendChild(dot);
+          }
+        } else {
+          link.classList.remove(
+            "text-brandTeal",
+            "bg-brandTeal/10",
+            "font-bold",
+          );
+          link.classList.add("text-slate-700");
+          const dot = link.querySelector(".animate-pulse");
+          if (dot) dot.remove();
+        }
+      });
     });
-  });
+  }
 
   // --- 2. Mobile Menu Toggle ---
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenuCloseBtn = document.getElementById('mobile-menu-close');
-  const mobileDrawer = document.getElementById('mobile-drawer');
-  const mobileOverlay = document.getElementById('mobile-overlay');
-
   function openMobileMenu() {
-    mobileDrawer.classList.remove('translate-x-full');
-    mobileOverlay.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
+    const mobileDrawer = document.getElementById("mobile-drawer");
+    const mobileOverlay = document.getElementById("mobile-overlay");
+    if (mobileDrawer) mobileDrawer.classList.remove("translate-x-full");
+    if (mobileOverlay) mobileOverlay.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
   }
 
   function closeMobileMenu() {
-    mobileDrawer.classList.add('translate-x-full');
-    mobileOverlay.classList.add('hidden');
-    document.body.style.overflow = '';
+    const mobileDrawer = document.getElementById("mobile-drawer");
+    const mobileOverlay = document.getElementById("mobile-overlay");
+    if (mobileDrawer) mobileDrawer.classList.add("translate-x-full");
+    if (mobileOverlay) mobileOverlay.classList.add("hidden");
+    document.body.style.overflow = "";
   }
 
-  if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileMenu);
-  if (mobileMenuCloseBtn) mobileMenuCloseBtn.addEventListener('click', closeMobileMenu);
-  if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobileMenu);
+  document.addEventListener("click", (e) => {
+    if (e.target.closest("#mobile-menu-btn")) {
+      openMobileMenu();
+    } else if (
+      e.target.closest("#mobile-menu-close") ||
+      e.target.id === "mobile-overlay"
+    ) {
+      closeMobileMenu();
+    } else if (e.target.closest("#mobile-courses-toggle")) {
+      e.preventDefault();
+      const menu = document.getElementById("mobile-courses-menu");
+      const chevron = document.getElementById("mobile-courses-chevron");
+      if (menu) menu.classList.toggle("hidden");
+      if (chevron) chevron.classList.toggle("rotate-180");
+    } else if (e.target.closest("#mobile-booking-toggle")) {
+      e.preventDefault();
+      const menu = document.getElementById("mobile-booking-menu");
+      const chevron = document.getElementById("mobile-booking-chevron");
+      if (menu) menu.classList.toggle("hidden");
+      if (chevron) chevron.classList.toggle("rotate-180");
+    } else if (e.target.closest(".mobile-subnav-link")) {
+      closeMobileMenu();
+    } else if (
+      e.target.closest(
+        ".mobile-nav-link:not(#mobile-courses-toggle):not(#mobile-booking-toggle)",
+      )
+    ) {
+      closeMobileMenu();
+    }
+  });
 
-  // Close mobile menu on clicking nav links
-  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-  mobileNavLinks.forEach(link => {
-    link.addEventListener('click', closeMobileMenu);
+  // --- Accordion FAQ Handler (Delegated) ---
+  document.addEventListener("click", (e) => {
+    const trigger = e.target.closest(".accordion-trigger");
+    if (trigger) {
+      e.preventDefault();
+      const item = trigger.closest(".accordion-item");
+      if (!item) return;
+      const isOpen = item.classList.contains("active");
+      const parentContainer = item.closest(".accordion-group");
+      if (parentContainer) {
+        parentContainer.querySelectorAll(".accordion-item").forEach((other) => {
+          if (other !== item) other.classList.remove("active");
+        });
+      }
+      item.classList.toggle("active", !isOpen);
+    }
   });
 
   // --- 3. Gallery Filtering ---
-  const filterBtns = document.querySelectorAll('.gallery-filter-btn');
-  const galleryItems = document.querySelectorAll('.gallery-item');
+  const filterBtns = document.querySelectorAll(".gallery-filter-btn");
+  const galleryItems = document.querySelectorAll(".gallery-item");
 
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
       // Remove active state from all buttons
-      filterBtns.forEach(b => {
-        b.classList.remove('bg-brandTeal', 'text-white', 'shadow-md');
-        b.classList.add('text-slate-600', 'hover:text-slate-900');
+      filterBtns.forEach((b) => {
+        b.classList.remove("bg-brandTeal", "text-white", "shadow-md");
+        b.classList.add("text-slate-600", "hover:text-slate-900");
       });
 
       // Add active state to clicked button
-      btn.classList.add('bg-brandTeal', 'text-white', 'shadow-md');
-      btn.classList.remove('text-slate-600', 'hover:text-slate-900');
+      btn.classList.add("bg-brandTeal", "text-white", "shadow-md");
+      btn.classList.remove("text-slate-600", "hover:text-slate-900");
 
-      const filterValue = btn.getAttribute('data-filter');
+      const filterValue = btn.getAttribute("data-filter");
 
-      galleryItems.forEach(item => {
-        const itemCategory = item.getAttribute('data-category');
-        if (filterValue === 'all' || filterValue === itemCategory) {
-          item.style.display = 'block';
+      galleryItems.forEach((item) => {
+        const itemCategory = item.getAttribute("data-category");
+        if (filterValue === "all" || filterValue === itemCategory) {
+          item.style.display = "block";
           setTimeout(() => {
-            item.style.opacity = '1';
-            item.style.transform = 'scale(1)';
+            item.style.opacity = "1";
+            item.style.transform = "scale(1)";
           }, 50);
         } else {
-          item.style.opacity = '0';
-          item.style.transform = 'scale(0.9)';
+          item.style.opacity = "0";
+          item.style.transform = "scale(0.9)";
           setTimeout(() => {
-            item.style.display = 'none';
+            item.style.display = "none";
           }, 300);
         }
       });
     });
   });
 
-  // --- 4. Lightbox Modal for Gallery ---
-  const lightboxModal = document.getElementById('lightbox-modal');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const lightboxTitle = document.getElementById('lightbox-title');
-  const lightboxClose = document.getElementById('lightbox-close');
+  // --- 4. Lightbox Modal for Gallery with Prev/Next, Counter & Keyboard Arrows ---
+  let activeLightboxItems = [];
+  let currentLightboxIndex = 0;
+  let savedScrollY = 0;
 
-  const galleryTriggers = document.querySelectorAll('.gallery-zoom-trigger');
-  galleryTriggers.forEach(trigger => {
-    trigger.addEventListener('click', (e) => {
-      e.preventDefault();
-      const imgSrc = trigger.getAttribute('data-img');
-      const title = trigger.getAttribute('data-title');
-      
-      lightboxImg.src = imgSrc;
-      lightboxTitle.textContent = title || 'Ayush Cricket Academy Gallery';
-      lightboxModal.classList.remove('hidden');
-      lightboxModal.classList.add('flex');
-      document.body.style.overflow = 'hidden';
+  function collectLightboxItems() {
+    const triggers = Array.from(
+      document.querySelectorAll(".gallery-zoom-trigger"),
+    );
+    // Filter triggers to visible ones in current view
+    const visibleTriggers = triggers.filter((t) => {
+      const parent = t.closest(".gallery-item");
+      return !parent || parent.style.display !== "none";
     });
-  });
 
-  function closeLightbox() {
-    if (lightboxModal) {
-      lightboxModal.classList.add('hidden');
-      lightboxModal.classList.remove('flex');
-      document.body.style.overflow = '';
+    if (visibleTriggers.length > 0) {
+      activeLightboxItems = visibleTriggers.map((t) => ({
+        src: t.getAttribute("data-img"),
+        title: t.getAttribute("data-title") || "Ayush Cricket Academy Gallery",
+      }));
+    } else if (window.academyMedia && window.academyMedia.images) {
+      activeLightboxItems = window.academyMedia.images.map((img) => ({
+        src: img.src,
+        title: img.title,
+      }));
     }
   }
 
-  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
-  if (lightboxModal) {
-    lightboxModal.addEventListener('click', (e) => {
-      if (e.target === lightboxModal) closeLightbox();
-    });
+  function updateLightboxView() {
+    if (!activeLightboxItems.length) return;
+    const item = activeLightboxItems[currentLightboxIndex];
+    const lightboxImg = document.getElementById("lightbox-img");
+    const lightboxTitle = document.getElementById("lightbox-title");
+    const lightboxCounter = document.getElementById("lightbox-counter");
+
+    if (lightboxImg) {
+      lightboxImg.style.opacity = "0.3";
+      lightboxImg.src = item.src;
+      lightboxImg.onload = () => {
+        lightboxImg.style.opacity = "1";
+      };
+    }
+    if (lightboxTitle) lightboxTitle.textContent = item.title;
+    if (lightboxCounter) {
+      const currentNum = String(currentLightboxIndex + 1).padStart(2, "0");
+      const totalNum = String(activeLightboxItems.length).padStart(2, "0");
+      lightboxCounter.textContent = `${currentNum} / ${totalNum}`;
+    }
   }
 
-  // --- 5. Video Testimonial Modal (Supports YouTube & HTML5 MP4) ---
-  const videoModal = document.getElementById('video-modal');
-  const videoContainer = document.getElementById('video-container');
-  const videoModalClose = document.getElementById('video-modal-close');
-  const videoTriggers = document.querySelectorAll('.video-play-btn');
+  function openLightbox(index) {
+    collectLightboxItems();
+    if (!activeLightboxItems.length) return;
+    currentLightboxIndex =
+      (index + activeLightboxItems.length) % activeLightboxItems.length;
 
-  videoTriggers.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const mediaUrl = btn.getAttribute('data-video');
-      const playerTitle = btn.getAttribute('data-title') || 'Student Testimonial';
+    const lightboxModal = document.getElementById("lightbox-modal");
+    if (!lightboxModal) return;
 
-      if (!mediaUrl) return;
+    savedScrollY = window.scrollY;
+    updateLightboxView();
 
-      // Clear previous content
-      videoContainer.innerHTML = '';
+    lightboxModal.classList.remove("hidden");
+    lightboxModal.classList.add("flex");
+    document.body.style.overflow = "hidden";
+  }
 
-      if (mediaUrl.endsWith('.mp4')) {
-        const videoElement = document.createElement('video');
-        videoElement.src = mediaUrl;
-        videoElement.controls = true;
-        videoElement.autoplay = true;
-        videoElement.className = 'w-full h-full rounded-xl object-contain bg-black';
-        videoContainer.appendChild(videoElement);
+  function closeLightbox() {
+    const lightboxModal = document.getElementById("lightbox-modal");
+    if (lightboxModal && !lightboxModal.classList.contains("hidden")) {
+      lightboxModal.classList.add("hidden");
+      lightboxModal.classList.remove("flex");
+      document.body.style.overflow = "";
+      window.scrollTo(0, savedScrollY);
+    }
+  }
+
+  function prevLightboxImage() {
+    if (!activeLightboxItems.length) return;
+    currentLightboxIndex =
+      (currentLightboxIndex - 1 + activeLightboxItems.length) %
+      activeLightboxItems.length;
+    updateLightboxView();
+  }
+
+  function nextLightboxImage() {
+    if (!activeLightboxItems.length) return;
+    currentLightboxIndex =
+      (currentLightboxIndex + 1) % activeLightboxItems.length;
+    updateLightboxView();
+  }
+
+  document.addEventListener("click", (e) => {
+    const trigger = e.target.closest(".gallery-zoom-trigger");
+    if (trigger) {
+      e.preventDefault();
+      collectLightboxItems();
+      const clickedSrc = trigger.getAttribute("data-img");
+      const foundIdx = activeLightboxItems.findIndex(
+        (it) => it.src === clickedSrc,
+      );
+      openLightbox(foundIdx !== -1 ? foundIdx : 0);
+      return;
+    }
+
+    if (e.target.closest("#lightbox-prev")) {
+      e.preventDefault();
+      e.stopPropagation();
+      prevLightboxImage();
+      return;
+    }
+
+    if (e.target.closest("#lightbox-next")) {
+      e.preventDefault();
+      e.stopPropagation();
+      nextLightboxImage();
+      return;
+    }
+
+    if (
+      e.target.closest("#lightbox-close") ||
+      e.target.id === "lightbox-modal"
+    ) {
+      closeLightbox();
+    }
+  });
+
+  // --- 5. Video Player Modal (Supports .video-play-btn and .video-card-trigger) ---
+  function closeVideoModal() {
+    const videoModal = document.getElementById("video-modal");
+    const videoContainer = document.getElementById("video-container");
+    if (videoModal && !videoModal.classList.contains("hidden")) {
+      const activeVideo = document.getElementById("active-modal-video");
+      if (activeVideo) {
+        activeVideo.pause();
+        activeVideo.src = "";
+      }
+      if (videoContainer) videoContainer.innerHTML = "";
+      videoModal.classList.add("hidden");
+      videoModal.classList.remove("flex");
+      document.body.style.overflow = "";
+      window.scrollTo(0, savedScrollY);
+    }
+  }
+
+  document.addEventListener("click", (e) => {
+    const trigger = e.target.closest(".video-play-btn, .video-card-trigger");
+    if (trigger) {
+      e.preventDefault();
+      const videoModal = document.getElementById("video-modal");
+      const videoContainer = document.getElementById("video-container");
+      const mediaUrl =
+        trigger.getAttribute("data-video") ||
+        trigger.querySelector("[data-video]")?.getAttribute("data-video");
+      const playerTitle =
+        trigger.getAttribute("data-title") ||
+        trigger.querySelector("[data-title]")?.getAttribute("data-title") ||
+        "Ayush Cricket Academy Video";
+
+      if (!mediaUrl || !videoModal || !videoContainer) return;
+
+      savedScrollY = window.scrollY;
+      videoContainer.innerHTML = "";
+
+      if (mediaUrl.endsWith(".mp4")) {
+        videoContainer.innerHTML = `
+          <div class="relative w-full h-full flex flex-col justify-center items-center bg-black rounded-2xl overflow-hidden">
+            <video id="active-modal-video" controls autoplay playsinline preload="auto" class="w-full max-h-[72vh] object-contain rounded-xl bg-black">
+              <source src="${mediaUrl}" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+            <div class="w-full bg-slate-900 border-t border-slate-800 p-3 sm:p-4 flex items-center justify-between text-xs text-white">
+              <div class="truncate mr-3">
+                <span class="font-bold text-teal-400 font-heading block sm:inline mr-2 truncate">${playerTitle}</span>
+                <span class="text-slate-400 text-[11px] hidden sm:inline">Ayush Cricket Academy Archive</span>
+              </div>
+              <a href="${mediaUrl}" target="_blank" rel="noopener" class="text-brandOrange hover:underline text-[11px] font-semibold shrink-0 flex items-center gap-1 bg-white/5 hover:bg-white/10 px-2.5 py-1 rounded-md border border-white/10">
+                <span>Direct Link</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+              </a>
+            </div>
+          </div>
+        `;
+        const videoElement = document.getElementById("active-modal-video");
+        if (videoElement) {
+          videoElement.play().catch(() => {});
+        }
       } else {
-        const iframeElement = document.createElement('iframe');
+        const iframeElement = document.createElement("iframe");
         iframeElement.src = mediaUrl;
         iframeElement.title = playerTitle;
-        iframeElement.className = 'w-full h-full rounded-xl border-0';
-        iframeElement.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframeElement.className = "w-full h-full rounded-xl border-0";
+        iframeElement.allow =
+          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
         iframeElement.allowFullscreen = true;
         videoContainer.appendChild(iframeElement);
       }
 
-      videoModal.classList.remove('hidden');
-      videoModal.classList.add('flex');
-      document.body.style.overflow = 'hidden';
-    });
+      videoModal.classList.remove("hidden");
+      videoModal.classList.add("flex");
+      document.body.style.overflow = "hidden";
+      return;
+    }
+
+    if (
+      e.target.closest("#video-modal-close") ||
+      e.target.id === "video-modal"
+    ) {
+      closeVideoModal();
+    }
   });
 
-  function closeVideoModal() {
-    if (videoModal) {
-      videoContainer.innerHTML = '';
-      videoModal.classList.add('hidden');
-      videoModal.classList.remove('flex');
-      document.body.style.overflow = '';
-    }
-  }
-
-  if (videoModalClose) videoModalClose.addEventListener('click', closeVideoModal);
-  if (videoModal) {
-    videoModal.addEventListener('click', (e) => {
-      if (e.target === videoModal) closeVideoModal();
-    });
-  }
-
   // --- 6. Number Counter Animation ---
-  const counters = document.querySelectorAll('.stat-counter');
+  const counters = document.querySelectorAll(".stat-counter");
   let animated = false;
 
   function runCounters() {
     const scrollPos = window.scrollY + window.innerHeight;
-    const statsSection = document.getElementById('stats-section');
+    const statsSection = document.getElementById("stats-section");
     if (!statsSection) return;
 
     if (!animated && scrollPos > statsSection.offsetTop + 100) {
       animated = true;
-      counters.forEach(counter => {
-        const target = +counter.getAttribute('data-target');
+      counters.forEach((counter) => {
+        const target = +counter.getAttribute("data-target");
         const duration = 2000;
         const step = target / (duration / 16);
         let current = 0;
@@ -224,7 +393,8 @@ document.addEventListener('DOMContentLoaded', () => {
             counter.innerText = Math.ceil(current);
             requestAnimationFrame(updateCount);
           } else {
-            counter.innerText = target + (counter.getAttribute('data-suffix') || '');
+            counter.innerText =
+              target + (counter.getAttribute("data-suffix") || "");
           }
         };
         updateCount();
@@ -232,14 +402,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  window.addEventListener('scroll', runCounters);
+  window.addEventListener("scroll", runCounters);
 
-  // --- 7. ESC Key Close Modals ---
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
+  // --- 7. Keyboard Navigation (ESC, Left/Right Arrows) ---
+  document.addEventListener("keydown", (e) => {
+    const lightboxModal = document.getElementById("lightbox-modal");
+    const isLightboxOpen =
+      lightboxModal && !lightboxModal.classList.contains("hidden");
+
+    if (e.key === "Escape") {
       closeLightbox();
       closeVideoModal();
       closeMobileMenu();
+    } else if (isLightboxOpen && e.key === "ArrowLeft") {
+      prevLightboxImage();
+    } else if (isLightboxOpen && e.key === "ArrowRight") {
+      nextLightboxImage();
     }
   });
 });
